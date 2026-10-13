@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#030711" />
+    <meta name="description" content="霓虹换轨——在双重星轨间闪避障碍的单指挑战游戏。" />
+    <title>霓虹换轨</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="game" aria-label="霓虹换轨游戏区">
+      <canvas id="canvas" aria-hidden="true"></canvas>
+
+      <header class="hud" aria-live="polite">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"><i></i></span>
+          <span>霓虹换轨</span>
+        </div>
+        <div class="hud-actions">
+          <button id="music-toggle" class="icon-button" type="button" aria-label="关闭音乐" aria-pressed="false">
+            <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <div class="score-wrap">
+            <span class="score-label">本局</span>
+            <strong id="score">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section id="start-screen" class="start-screen" aria-labelledby="game-title">
+        <p class="eyebrow">NEON ORBIT / 160 BPM</p>
+        <h1 id="game-title">霓虹<br /><span>换轨</span></h1>
+        <p class="intro">一次点击，一次变轨。<br />在双重星轨上穿过电流缺口。</p>
+        <button id="start" class="primary-button" type="button"><span>启动光梭</span><i aria-hidden="true">→</i></button>
+        <div class="start-meta"><span>最高记录</span><strong id="best-score">0</strong></div>
+      </section>
+
+      <div id="game-hint" class="game-hint" hidden>
+        <span class="tap-ring" aria-hidden="true"></span>
+        <span>点击切换内外轨道</span>
+      </div>
+
+      <aside class="status-panel" aria-hidden="true">
+        <span class="status-kicker">ORBITAL VELOCITY</span>
+        <div class="status-line"><strong id="level">LV.01</strong><span id="speed-label">稳定</span></div>
+        <div class="level-track"><i id="level-progress"></i></div>
+      </aside>
+
+      <section id="result" class="result" aria-labelledby="result-title" hidden>
+        <div class="result-card">
+          <span class="result-signal" aria-hidden="true"><i></i></span>
+          <p class="eyebrow">ORBIT DISCONNECTED</p>
+          <h2 id="result-title">轨道失联</h2>
+          <div class="result-score"><span>本局通过</span><strong id="final-score">0</strong></div>
+          <p id="record-message" class="record-message">最高记录 0</p>
+          <button id="restart" class="primary-button" type="button"><span>再次启动</span><i aria-hidden="true">↻</i></button>
+        </div>
+      </section>
+
+      <footer class="track-info" aria-live="polite">
+        <span class="track-dot" aria-hidden="true"></span><span>原创配乐</span><strong>NEON ORBIT</strong>
+      </footer>
+
+      <audio id="music" preload="auto" loop>
+        <source src="./assets/audio/neon-orbit.ogg" type="audio/ogg" />
+        <source src="./assets/audio/neon-orbit.mp3" type="audio/mpeg" />
+      </audio>
+    </main>
+    <script src="./game.js"></script>
+  </body>
+</html>
